@@ -79,7 +79,7 @@ tpacker -g tmp.ignore/snoring_net.quant.onnx -d True -o snor_model_origin.bin
 
 ### 推理执行
 使用调用示例工程test_thinker，指定输入数据、资源文件和输出文件名称即可运行模拟代码。
-chmod +x ./bin/test_thinker
+chmod +x ./bin/test_thinker  
 ./bin/test_thinker /data/user/mywang44/snoring_net/Snoring_Dataset_c/fea_int8/1 /data/user/mywang44/thinker/demo/test_thinker/ snor_model_origin.bin /data/user/mywang44/thinker/demo/test_thinker/output 1 64 64 6
 
 ## 模型评估
