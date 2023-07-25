@@ -1,10 +1,10 @@
 # snoring_net
 snoring detection project using LNN(linger&amp;thinker)
 
-# 介绍
+## 介绍
 本仓库利用LNN工具链实现鼾声检测模型的落地。主要包括浮点训练、量化训练、模型打包、模拟引擎执行、固件烧录并芯片运行。其中固件烧录并芯片运行需要在聆思的开发板上来完成。
 
-# 环境配置
+## 环境配置
 ### linger环境配置及安装
 https://github.com/LISTENAI/linger/blob/main/doc/tutorial/install.md
 
@@ -20,7 +20,7 @@ librosa-0.7.2
 resampy-0.2.2  
 numba-0.48  
 
-# 数据集
+## 数据集
 仓库采用了三个数据集，分别是Kaggle-Snoring、Kaggle-Female and Male Snoring和 ESC-50 数据库。  
 
 Kaggle - Snoring   
@@ -48,13 +48,13 @@ ____Snoring_Dataset
 ｜__resample_16k  
 
 
-# 音频文件特征提取
+## 音频文件特征提取
 ### 训练集、测试集特征提取
 运行脚本tools/fea_extra copy.py。
 ### 预测数据集特征提取
 运行脚本tools/long_fea_extra_int8.py
 
-# 开始训练
+## 开始训练
 ### 浮点训练
 在main中设置训练模式为float，并运行脚本train.py
 
@@ -82,5 +82,5 @@ tpacker -g tmp.ignore/snoring_net.quant.onnx -d True -o snor_model_origin.bin
 chmod +x ./bin/test_thinker
 ./bin/test_thinker /data/user/mywang44/snoring_net/Snoring_Dataset_c/fea_int8/1 /data/user/mywang44/thinker/demo/test_thinker/ snor_model_origin.bin /data/user/mywang44/thinker/demo/test_thinker/output 1 64 64 6
 
-# 模型评估
+## 模型评估
 Accuracy: 0.986, F1: 0.986, Recall: 0.980
