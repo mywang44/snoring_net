@@ -24,22 +24,22 @@ numba-0.48
 仓库采用了三个数据集，分别是Kaggle-Snoring、Kaggle-Female and Male Snoring和 ESC-50 数据库。
 
 Kaggle - Snoring
-数据来源：https://www.kaggle.com/datasets/tareqkhanemu/snoring
-数据介绍：该数据集包含两个文件夹，一个为鼾声，另一个为非鼾声。鼾声文件夹中含有总共500段鼾声音频，每段音频的持续时间为1秒。
-男性和女性鼾声数据集 (Female and Male Snoring)
+数据来源：https://www.kaggle.com/datasets/tareqkhanemu/snoring  
+数据介绍：该数据集包含两个文件夹，一个为鼾声，另一个为非鼾声。鼾声文件夹中含有总共500段鼾声音频，每段音频的持续时间为1秒。  
+男性和女性鼾声数据集 (Female and Male Snoring)  
 
 Kaggle - Female and Male Snoring
-数据来源：https://www.kaggle.com/datasets/orannahum/female-and-male-snoring
-数据介绍：男性和女性鼾声数据集中，每个wav文件的持续时间为1秒，采样率为44100Hz，共1000段鼾声音频。
+数据来源：https://www.kaggle.com/datasets/orannahum/female-and-male-snoring  
+数据介绍：男性和女性鼾声数据集中，每个wav文件的持续时间为1秒，采样率为44100Hz，共1000段鼾声音频。  
 
 ESC-50
-数据来源：https://github.com/karolpiczak/ESC-50
-数据介绍：ESC-50是一个多用途、标注准确的环境声音数据集，包括50个类别和2000个音频样本（每个样本持续时间为5秒）。在本项目中，选取了数据集中非鼾声的音频，每条音频分割为1秒的片段，从而得到2500条非鼾声数据。
+数据来源：https://github.com/karolpiczak/ESC-50  
+数据介绍：ESC-50是一个多用途、标注准确的环境声音数据集，包括50个类别和2000个音频样本（每个样本持续时间为5秒）。在本项目中，选取了数据集中非鼾声的音频，每条音频分割为1秒的片段，从而得到2500条非鼾声数据。  
 
-为了保证数据平衡，本仓库使用数据增强来处理鼾声样本。最终数据集包含6000段鼾声样本和6000段非鼾声样本。
-处理好的数据集可以从该处下载：
+为了保证数据平衡，本仓库使用数据增强来处理鼾声样本。最终数据集包含6000段鼾声样本和6000段非鼾声样本。  
+处理好的数据集可以从该处下载：  
 
-链接: https://pan.baidu.com/s/1QJzifB5Mde2iSc7GM9V8fg 提取码: 1234 
+链接: https://pan.baidu.com/s/1QJzifB5Mde2iSc7GM9V8fg 提取码: 1234   
 
 并以如下方式存放于项目中：
 ____Snoring_Dataset
