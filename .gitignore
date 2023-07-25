@@ -1,0 +1,10 @@
+**/**/__pycache__
+**/**/*.onnx
+**/**/*.pt
+**/**/*.pkg
+thinker/**/*
+
+data/**/**
+tmp.ignore/
+
+
