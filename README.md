@@ -12,16 +12,16 @@ https://github.com/LISTENAI/linger/blob/main/doc/tutorial/install.md
 https://github.com/LISTENAI/thinker/blob/main/thinker/docs/tutorial/install.md
 
 ## requirement
-pandas-1.1.5
-scikit-learn-1.0.2
-torchaudio-0.9.0
-tqdm-4.65.0
-librosa-0.7.2
-resampy-0.2.2
-numba-0.48
+pandas-1.1.5  
+scikit-learn-1.0.2  
+torchaudio-0.9.0  
+tqdm-4.65.0  
+librosa-0.7.2  
+resampy-0.2.2  
+numba-0.48  
 
 # 数据集
-仓库采用了三个数据集，分别是Kaggle-Snoring、Kaggle-Female and Male Snoring和 ESC-50 数据库。
+仓库采用了三个数据集，分别是Kaggle-Snoring、Kaggle-Female and Male Snoring和 ESC-50 数据库。  
 
 Kaggle - Snoring
 数据来源：https://www.kaggle.com/datasets/tareqkhanemu/snoring  
@@ -41,11 +41,11 @@ ESC-50
 
 链接: https://pan.baidu.com/s/1QJzifB5Mde2iSc7GM9V8fg 提取码: 1234   
 
-并以如下方式存放于项目中：
-____Snoring_Dataset
-｜__fea
-｜__orgin
-｜__resample_16k
+并以如下方式存放于项目中：  
+____Snoring_Dataset  
+｜__fea  
+｜__orgin  
+｜__resample_16k  
 
 
 # 音频文件特征提取
@@ -59,7 +59,7 @@ ____Snoring_Dataset
 在main中设置训练模式为float，并运行脚本train.py
 
 trained_net = train(train_loader, test_loader, test_dataset, mode = "float", load_model_path = None, num_epochs = 5)
-运行脚本train.py
+
 
 ## 约束训练
 替换使用约束训练代码clamp，并运行脚本train.py
@@ -82,5 +82,5 @@ tpacker -g tmp.ignore/snoring_net.quant.onnx -d True -o snor_model_origin.bin
 chmod +x ./bin/test_thinker
 ./bin/test_thinker /data/user/mywang44/snoring_net/Snoring_Dataset_c/fea_int8/1 /data/user/mywang44/thinker/demo/test_thinker/ snor_model_origin.bin /data/user/mywang44/thinker/demo/test_thinker/output 1 64 64 6
 
-
-Accuracy: 0.9863888888888889, F1: 0.9866666666666666, Recall: 0.9805300162249865
+# 模型
+Accuracy: 0.986, F1: 0.986, Recall: 0.980
