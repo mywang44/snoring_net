@@ -263,9 +263,9 @@ if __name__ == "__main__":
     
     train_loader, test_loader, test_dataset = prepare_data(files, labels)
 
-    # trained_net = train(train_loader, test_loader, test_dataset, mode = "float", load_model_path = None, num_epochs = 5)#浮点训练
+    trained_net = train(train_loader, test_loader, test_dataset, mode = "float", load_model_path = None, num_epochs = 5)#浮点训练
     # trained_net = train(train_loader, test_loader, test_dataset, mode = "clamp", load_model_path = "./tmp.ignore/snoring_net.float.best.pt", num_epochs =3)#约束训练
-    trained_net = train(train_loader, test_loader, test_dataset, mode = "quant", load_model_path = "./tmp.ignore/snoring_net.clamp.best.pt", num_epochs = 3)#量化训练
+    # trained_net = train(train_loader, test_loader, test_dataset, mode = "quant", load_model_path = "./tmp.ignore/snoring_net.clamp.best.pt", num_epochs = 3)#量化训练
 
 
     acc, f1, recall = evaluate(trained_net, test_loader, device)
