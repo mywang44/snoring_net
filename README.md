@@ -26,7 +26,7 @@ numba-0.48
 Kaggle - Snoring   
 数据来源：https://www.kaggle.com/datasets/tareqkhanemu/snoring  
 数据介绍：该数据集包含两个文件夹，一个为鼾声，另一个为非鼾声。鼾声文件夹中含有总共500段鼾声音频，每段音频的持续时间为1秒。  
-男性和女性鼾声数据集 (Female and Male Snoring)  
+
 
 Kaggle - Female and Male Snoring  
 数据来源：https://www.kaggle.com/datasets/orannahum/female-and-male-snoring  
