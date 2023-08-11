@@ -50,7 +50,7 @@ ____Snoring_Dataset
 
 ## 音频文件特征提取
 ### 训练集、测试集特征提取
-运行脚本tools/fea_extra copy.py。
+运行脚本tools/fea_extra.py。
 ### 预测数据集特征提取
 运行脚本tools/long_fea_extra_int8.py
 
