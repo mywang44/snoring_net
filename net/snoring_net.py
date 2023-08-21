@@ -107,7 +107,9 @@ class snoring_net(nn.Module):
         out = out.view(out.size()[0], -1)
         out = F.relu(self.fc1(out))
         out = F.relu(self.fc2(out))
-        out = F.relu(self.fc3(out))
+        out = self.fc3(out)
+        # out = F.relu(self.fc3(out))
+        out = F.softmax(out, dim=-1)
         # out = torch.log_softmax(out, dim=-1)
         # out = torch.argmax(out, dim=1)
 
