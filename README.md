@@ -56,7 +56,7 @@ ____Snoring_Dataset
 
 ## 主要流程
 ### 模型训练
-运行脚本train.py, 浮点训练(float)、约束训练(clamp)、量化训练(quant)会按顺序一次性执行
+运行脚本train.py, 浮点训练(float)、约束训练(clamp)、量化训练(quant)会按顺序一次性执行  
 最终该脚本会在./tmp.ignore/文件夹下生成一个snoring_net.quant.onnx
 
 ### 模型打包
