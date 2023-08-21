@@ -54,31 +54,17 @@ ____Snoring_Dataset
 ### 预测数据集特征提取
 运行脚本tools/long_fea_extra_int8.py
 
-## 开始训练
-### 1.浮点训练
-在main中设置训练模式为float，并运行脚本train.py
-```
-trained_net = train(train_loader, test_loader, test_dataset, mode = "float", load_model_path = None, num_epochs = 5)
-```
-
-### 2.约束训练
-替换使用约束训练代码clamp，并运行脚本train.py
-```
-trained_net = train(train_loader, test_loader, test_dataset, mode = "clamp", load_model_path = "./tmp.ignore/snoring_net.float.best.pt", num_epochs =3)
-```
-### 3.量化训练
-替换使用量化训练训练代码，并运行脚本train.py
-```
-trained_net = train(train_loader, test_loader, test_dataset, mode = "quant", load_model_path = "./tmp.ignore/snoring_net.clamp.best.pt", num_epochs = 3)
-```
+## 主要流程
+### 模型训练
+运行脚本train.py, 浮点训练(float)、约束训练(clamp)、量化训练(quant)会按顺序一次性执行
 最终该脚本会在./tmp.ignore/文件夹下生成一个snoring_net.quant.onnx
 
-### 4.模型打包
+### 模型打包
 切换到thinker-env环境，使用thinker离线工具tpacker将刚才生成的onnx计算图打包
 ```
 tpacker -g tmp.ignore/snoring_net.quant.onnx -d True -o snor_model_origin.bin
 ```
-### 5.推理执行
+### 推理执行
 使用调用示例工程test_thinker，指定输入数据、资源文件和输出文件夹名称即可运行模拟代码。
 ```
 chmod +x ./bin/test_thinker  
