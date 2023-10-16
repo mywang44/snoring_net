@@ -1,5 +1,7 @@
 1、heads种Param.h是一些基本的参数信息，其中在提取mel频谱的时候，窗口数据和mel滤波器数据事先通过python得到，然后存储到矩阵中，这样端上不用每次重新计算。
 2、kiss_fft130是第三方的提取fft的库。
+https://github.com/mborgerding/kissfft
 3、dr_mp3 dr_wav文件是提取wav中信息的基本操作的第三方库。
+https://github.com/mackron/dr_libs/tree/master
 4、onnx_run.py是python文件可以通过这个得到具体的窗口和mel滤波器矩阵。
 5、main是主要执行文件，里面包含了重采样-提取特征-mel滤波-特征量化等操作。
