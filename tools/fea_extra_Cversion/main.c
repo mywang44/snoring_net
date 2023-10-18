@@ -162,8 +162,26 @@ void saveArrayToFile(float array[], int length, const char *filename) {
     fclose(file); // 关闭文件
 }
 
+// 函数用于将一维浮点数数组保存到文本文件
+void saveArrayToFileInt(int8_t array[], int length, const char *filename) {
+    FILE *file = fopen(filename, "a"); // "a" 表示以追加模式打开文件
+
+    if (file == NULL) {
+        printf("无法打开文件 %s\n", filename);
+        return;
+    }
+
+    for (int i = 0; i < length; i++) {
+        fprintf(file, "%d ", array[i]); // 以两位小数的格式写入文件
+    }
+
+    fprintf(file, "\n"); // 写入换行符表示一维数组结束
+
+    fclose(file); // 关闭文件
+}
+
 int main() {
-    char *in_file = "0_198.wav";
+    char *in_file = "/Users/robinqueue/workSpace/PianoInfer/0_111.wav";
     uint32_t targetSampleRate = 16000;
 
     uint32_t sampleRate = 0;
@@ -206,7 +224,8 @@ int main() {
             kiss_fft_cfg fft_tool = kiss_fft_alloc(window_len, 0, 0, 0);
             KISS_FFT_FREE(fft_tool);
 
-            const char *out_filename = "output.txt";
+            const char *out_filename = "/Users/robinqueue/workSpace/PianoInfer/c_output_float.txt";
+            const char *out_filename2 = "/Users/robinqueue/workSpace/PianoInfer/c_output_int.txt";
             int frameSize = output_size_2 / hop_size - 1;
             int frameIndex = 0;
             float melResult[frameSize][mel_bins];
@@ -261,22 +280,41 @@ int main() {
 
             float melResultNorm[frameSize][mel_bins];
             int8_t melResultNormInt[frameSize][mel_bins];
+
+            float maxAbsValue = 0.0f;
             for (int ii = 0; ii < frameSize; ii++) {
                 for (int jj = 0; jj < mel_bins; jj++) {
-                    float melNorm = (melResult[ii][jj] - mean) / (std + 1e-6);
+                    float melNorm = (melResult[ii][jj] - mean) / (std + 1e-6f);
                     melResultNorm[ii][jj] = melNorm;
 
-                    // 转为int8
-                    melNorm = floorf(melNorm * 64 + 0.5);
+                    float absValue = fabsf(melNorm);
+                    if (absValue > maxAbsValue) {
+                        maxAbsValue = absValue;
+                    }
+//                    // 转为int8
+//                    melNorm = floorf(melNorm * 64 + 0.5);
+//                    int8_t int8Value = (int8_t) (int) melNorm;
+//                    melResultNormInt[ii][jj] = int8Value;
+
+                }
+            }
+            printf("%f %f", mean, std);
+
+            for (int ii = 0; ii < frameSize; ii++) {
+                for (int jj = 0; jj < mel_bins; jj++) {
+                    float melNorm = melResultNorm[ii][jj];
+                    melNorm = melNorm / maxAbsValue;
+                    melNorm = melNorm * 127;
                     int8_t int8Value = (int8_t) (int) melNorm;
                     melResultNormInt[ii][jj] = int8Value;
 
                 }
             }
-            printf("%f %f", mean, std);
             for (int ii = 0; ii < frameSize; ii++) {
                 saveArrayToFile(melResultNorm[ii], sizeof(melResultNorm[ii]) / sizeof(melResultNorm[ii][0]),
                                 out_filename);
+                saveArrayToFileInt(melResultNormInt[ii], sizeof(melResultNormInt[ii]) / sizeof(melResultNormInt[ii][0]),
+                                   out_filename2);
             }
         }
     }
