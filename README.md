@@ -51,7 +51,7 @@ ____Snoring_Dataset
 ## 音频文件特征提取
 ### 训练集、测试集特征提取
 运行脚本tools/fea_extra.py。
-### 预测数据集特征提取
+### 用于Thinker推理数据集特征提取
 运行脚本tools/long_fea_extra_int8.py
 
 ## 主要流程
